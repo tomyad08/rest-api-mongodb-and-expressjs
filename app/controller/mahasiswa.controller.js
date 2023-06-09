@@ -8,17 +8,23 @@ exports.create = (req, res) => {
     .catch((err) => res.status(500).send({ message: err.message }));
 };
 
-exports.findAll = (req, res) => {
-  Mahasiswa.find()
-    .then(() => res.send({ message: "Data berhasil di temukan" }))
-    .catch((err) => res.status(500).send({ message: err.message }));
+exports.findAll = async (req, res) => {
+  try {
+    const data = await Mahasiswa.find();
+    res.json(data);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-exports.show = (req, res) => {
+exports.show = async (req, res) => {
   const id = req.params.id;
-  Mahasiswa.findById(id)
-    .then(() => res.send({ message: "Data berhasil ditemukkan" }))
-    .catch((err) => res.status(500).send({ message: err.message }));
+  try {
+    const data = await Mahasiswa.findById(id);
+    res.json(data);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
 };
 
 exports.update = (req, res) => {

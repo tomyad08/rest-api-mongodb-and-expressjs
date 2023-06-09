@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "exprees api",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +20,5 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongoose": "^7.2.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
   }
 }
